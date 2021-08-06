@@ -15,14 +15,9 @@ const songs = ["hey", "summer", "ukulele"];
 let songIndex = 2;
 
 // Initially load song
-
-function loadSong(song) {
-  title.textContent = song;
-  audio.src = `music/${song}.mp3`;
-  cover.src = `images/${song}.jpeg`;
-}
-
 loadSong(songs[songIndex]);
+
+// Listeners
 
 playBtn.addEventListener("click", onPlay);
 prevBtn.addEventListener("click", prevSong);
@@ -30,6 +25,14 @@ nextBtn.addEventListener("click", nextSong);
 audio.addEventListener("timeupdate", updateProgress);
 progressContainer.addEventListener("click", skipTo);
 audio.addEventListener("ended", nextSong);
+
+// Function declarations
+
+function loadSong(song) {
+  title.textContent = song;
+  audio.src = `music/${song}.mp3`;
+  cover.src = `images/${song}.jpeg`;
+}
 
 function onPlay() {
   const isPlaying = musicContainer.classList.contains("play");
